@@ -1,0 +1,15 @@
+{
+  "name": "ned-prospectus-assistant",
+  "private": true,
+  "description": "Grounded RAG assistant over NED University prospectus PDFs.",
+  "scripts": {
+    "dev:web": "npm --prefix apps/web run dev",
+    "dev:api": "python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000 --app-dir apps/api",
+    "test:web": "npm --prefix apps/web test",
+    "test:api": "python -m pytest apps/api/tests -q",
+    "lint:web": "npm --prefix apps/web run lint",
+    "typecheck:web": "npm --prefix apps/web run typecheck",
+    "ingest": "python scripts/ingest_documents.py",
+    "evaluate": "python scripts/evaluate_retrieval.py"
+  }
+}

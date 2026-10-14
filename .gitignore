@@ -1,0 +1,53 @@
+# Secrets and local env
+.env
+.env.local
+.env.*.local
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Node
+node_modules/
+apps/web/.next/
+apps/web/out/
+apps/web/coverage/
+npm-debug.log*
+.pnpm-debug.log*
+
+# Vector store and uploaded documents
+data/chroma/*
+!data/chroma/.gitkeep
+data/documents/*
+!data/documents/.gitkeep
+data/uploads/
+data/ocr_cache/
+data/experiments/
+data/page_images/
+*.bin
+chroma.sqlite3
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Test artifacts
+apps/api/tests/.tmp/
+apps/web/test-results/

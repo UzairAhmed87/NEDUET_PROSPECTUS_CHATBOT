@@ -1,0 +1,1 @@
+"""NED Prospectus Assistant API."""

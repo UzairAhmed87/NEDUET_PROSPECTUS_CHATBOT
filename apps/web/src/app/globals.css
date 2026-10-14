@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --paper: #f1ebdf;
+  --ink: #171410;
+  --crimson: #9b2032;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1200px 420px at 12% -10%, rgba(155, 32, 50, 0.05), transparent 55%),
+    linear-gradient(180deg, #f6f1e6 0%, var(--paper) 140px);
+  color: var(--ink);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--crimson);
+  outline-offset: 2px;
+}
+
+.markdown-body p {
+  margin: 0 0 0.75rem;
+}
+
+.markdown-body p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  margin: 0 0 0.75rem;
+  padding-left: 1.15rem;
+}
+
+.markdown-body li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body a {
+  color: var(--crimson);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 50;
+  background: #1a2744;
+  color: #f8f4eb;
+  padding: 0.5rem 0.75rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Motion: opacity/transform only; disabled under reduced motion */
+@keyframes ned-fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes ned-dot { 0%, 80%, 100% { opacity: 0.25; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-2px); } }
+.animate-fade-up { animation: ned-fade-up 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.loading-dot { display: inline-block; width: 6px; height: 6px; border-radius: 9999px; background: currentColor; animation: ned-dot 1.2s ease-in-out infinite; }
+.loading-dot:nth-child(2) { animation-delay: 0.15s; }
+.loading-dot:nth-child(3) { animation-delay: 0.3s; }
+@keyframes ned-mark-in { from { opacity: 0; transform: scale(0.86) rotate(-4deg); } to { opacity: 1; transform: none; } }
+@keyframes ned-line { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.splash-mark { animation: ned-mark-in 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.splash-title { animation: ned-fade-up 520ms 180ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.splash-sub { animation: ned-fade-up 520ms 300ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.splash-line { animation: ned-line 1100ms 420ms cubic-bezier(0.65, 0, 0.35, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up, .loading-dot, .splash-mark, .splash-title, .splash-sub, .splash-line { animation: none !important; }
+  * { transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
